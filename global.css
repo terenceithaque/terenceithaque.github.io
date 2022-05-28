@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+p {
+  font-family: Anton;
+}
+
+body {
+  background-color: rgb(199, 199, 28);
+}
+img {
+  height: 50px;
+  width: 50px;
+}
+.littleP {
+  width: 30px;
+  height: 40px;
+}
