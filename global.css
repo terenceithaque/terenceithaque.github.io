@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap");
 p {
-  font-family: Anton;
+  font-family: Kanit;
 }
 
 body {
-  background-color: rgb(199, 199, 28);
+  background-color: rgb(12, 168, 200);
 }
 img {
   height: 50px;
@@ -13,4 +13,16 @@ img {
 .littleP {
   width: 30px;
   height: 40px;
+}
+.github-avatar {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+}
+a {
+  font-family: Kanit;
+}
+
+.required-softwares {
+  text-align: center;
 }
