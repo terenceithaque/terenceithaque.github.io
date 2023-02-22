@@ -5,24 +5,70 @@
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="global.css" />
   </head>
+
   <body>
     <header>
       <div class="header-right"></div>
-       <p class = "alert"></p>
-      <p><button class = "download"> <a href = "output/aloha from hawaï.exe" download>aloha from hawaï.exe</button></a></p>
+      <div class="os">
+        <p class="alert">
+          Sorry ! It seems that you can't download the following programs
+          because this device is not running Windows.
+        </p>
+      </div>
+      <p>
+        <a class="downloadLink" href="output/aloha from hawaï.exe" download
+          >aloha from hawaï.exe</a
+        >
+      </p>
 
-     <p><button class="download"><a href = "output/calculatrice.exe" download>calculatrice.exe</button></a></p>
+      <p>
+        <a class="downloadLink" href="output/calculatrice.exe" download
+          >calculatrice.exe</a
+        >
+      </p>
     </header>
 
-  <script>
-    let elDownload = document.querySelector(".dowload");
-    let elAlert = document.querySelector(".alert");
+    <script>
+      let elOS = document.querySelector(".os");
+      //let elDownload = document.querySelector(".download");
 
-    if (navigator.platform != "Win32"){
-      elDownload.disable= true;
-      elAlert.innerHTML("Oops ! You can't download these files because this device is not using Windows !");
-    }
+      let elDownloadLinks = document.querySelectorAll(".downloadLink");
 
-  </script>
+      //let elAlert = document.querySelector(".alert");
+      console.log(navigator.platform);
+
+      elOS.classList.add("hide");
+      let platform = "Win32";
+      if (navigator.platform != platform) {
+        //elDownload.setAttribute("disabled", true);
+        for (link of elDownloadLinks) {
+          link.classList.add("disabled");
+          console.log(link);
+        }
+        //elAlert.innerHTML("Oops ! You can't download these files because this device is not using Windows !");
+        elOS.classList.remove("hide");
+      }
+    </script>
+
+    <style>
+      .os.hide {
+        display: none;
+      }
+      os {
+        display: block;
+      }
+      .alert {
+        color: red;
+      }
+      .downloadLink.disabled {
+        pointer-events: none;
+      }
+
+      .downloadLink {
+        width: 50px;
+        height: 50px;
+        color: lightsalmon;
+      }
+    </style>
   </body>
 </html>
