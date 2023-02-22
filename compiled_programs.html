@@ -15,11 +15,11 @@
     </header>
 
   <script>
-    elDownload = document.querySelector(".dowload");
-    elAlert = document.querySelector(".alert");
+    let elDownload = document.querySelector(".dowload");
+    let elAlert = document.querySelector(".alert");
 
     if (navigator.platform != "Win32"){
-      elDownload.disabled = true;
+      elDownload.disable= true;
       elAlert.innerHTML("Oops ! You can't download these files because this device is not using Windows !");
     }
 
