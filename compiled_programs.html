@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My python activities (compiled for Windows)</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-right"></div>
+       <p class = "alert"></p>
+      <p><button class = "download"> <a href = "output/aloha from hawaï.exe" download>aloha from hawaï.exe</button></a></p>
+
+     <p><button class="download"><a href = "output/calculatrice.exe" download>calculatrice.exe</button></a></p>
+    </header>
+
+  <script>
+    elDownload = document.querySelector(".dowload");
+    elAlert = document.querySelector(".alert");
+
+    if (navigator.platform != "Win32"){
+      elDownload.disabled = true;
+      elAlert.innerHTML("Oops ! You can't download these files because this device is not using Windows !");
+    }
+
+  </script>
+  </body>
+</html>
