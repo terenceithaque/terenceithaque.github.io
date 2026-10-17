@@ -45,27 +45,69 @@
           >conversion.exe</a
         >
       </p>
+
+      <input type="checkbox" id="allowDownloads">
+      <label for="allowDownloads" id="allowDownloadsLabel">Allow downloads anyway</label>
     </header>
 
     <script>
+
       let elOS = document.querySelector(".os");
       //let elDownload = document.querySelector(".download");
 
       let elDownloadLinks = document.querySelectorAll(".downloadLink");
 
+      let allowDownloadsButton = document.getElementById("allowDownloads");
+      allowDownloadsButton.checked = false;
+      let allowDownloadsLabel = document.getElementById("allowDownloadsLabel");
+      let downloadsEnabled = false;
+
+      allowDownloadsButton.addEventListener("click", setDownloadsState)
+
       //let elAlert = document.querySelector(".alert");
       console.log(navigator.platform);
 
+      allowDownloadsButton.hidden = true;
+      allowDownloadsLabel.hidden = true
       elOS.classList.add("hide");
       let platform = "Win32";
       if (navigator.platform != platform) {
         //elDownload.setAttribute("disabled", true);
         for (link of elDownloadLinks) {
           link.classList.add("disabled");
+          allowDownloadsButton.hidden = false;
+          allowDownloadsLabel.hidden = false;
           console.log(link);
         }
         //elAlert.innerHTML("Oops ! You can't download these files because this device is not using Windows !");
         elOS.classList.remove("hide");
+      }
+
+      function enableDownloadLinks() {
+
+        for (link of elDownloadLinks) {
+            link.classList.remove("disabled");
+        }
+        downloadsEnabled = true;
+        elOS.classList.add("hide");
+      }
+
+      function disableDownloadLinks() {
+
+        for (link of elDownloadLinks) {
+          link.classList.add("disabled");
+        }
+
+        elOS.classList.remove("hide");
+        downloadsEnabled = false;
+      }
+
+      function setDownloadsState(){
+        if(downloadsEnabled === true) {
+          disableDownloadLinks();
+        } else {
+          enableDownloadLinks();
+        }
       }
     </script>
 
